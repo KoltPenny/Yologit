@@ -30,7 +30,7 @@ elif [[ $# -eq 1 ]] ; then
 elif [ $# -eq 4 ] && [ $1 = "--rekt" ] && [ -d $gitlocation/$2 ] && [ $3 = "--message" ] ; then
 		
 		git -C $gitlocation/$2 add .
-		git -C $gitlocation/$2 commit -m $4
+		git -C $gitlocation/$2 commit -m "$4"
 		git -C $gitlocation/$2 pull origin master
 		git -C $gitlocation/$2 push origin master
  
