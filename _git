@@ -1,0 +1,37 @@
+#!/bin/bash
+
+#WARNING: This tool could make or break your changes, so be careful when using it.
+
+#Modify this value to change your projects' location
+gitlocation="/home/kolt/Git/"
+
+usage="\nUSAGE: gitrekt [OPTION]... [DIR]\n\tFor help use the --help option.\n"
+help="\n_git commands:\n
+								\t--good\t\tTutorial comming soon.
+								\t--help\t\tShow this menu.\n
+								\t--list\t\tList all your git projects (on your predefined git directory).\n
+								\t--rekt [DIR]\tAdd, commit, pull and push everything in one go.\n"
+
+if [[ $# -eq 0 ]] ; then
+    echo -e $usage
+    exit 0
+
+elif [[ $# -eq 1 ]] ; then
+		case "$1" in
+				--list)
+						ls -1 $gitlocation
+						;;
+				--help)
+						echo -e $help
+						exit 0
+						;;
+		esac
+		
+elif [ $# -eq 4 ] && [ $1 = "--rekt" ] && [ -d $gitlocation/$2 ] && [ $3 = "--message" ] ; then
+		
+		git -C $gitlocation/$2 add .
+		git -C $gitlocation/$2 commit -m $4
+		git -C $gitlocation/$2 pull origin master
+		git -C $gitlocation/$2 push origin master
+ 
+fi
