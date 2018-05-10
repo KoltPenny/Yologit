@@ -19,7 +19,7 @@ Things you need:
 - 1 Teabag
 - 1 Cup of hot water
 - 1 Keyboard
-- A directory where you store every file
+- A directory where you store every project
 
 ### Simple user
 
